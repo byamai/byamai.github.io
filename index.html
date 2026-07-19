@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amanda Li</title>
+<meta name="description" content="Amanda Li — statistics, economics & mathematics, University of Toronto. Co-founder of Morphiq. Computer vision research at UHN — Toronto General.">
+<meta property="og:title" content="Amanda Li">
+<meta property="og:description" content="Following the threads between data, product, and human health. Co-founder of Morphiq · computer vision research at UHN.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://byamai.github.io/">
+<meta property="og:image" content="https://byamai.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235B46B0'/%3E%3Ctext x='32' y='45' font-family='-apple-system,Helvetica,Arial,sans-serif' font-size='38' font-weight='600' fill='%23FFFFFF' text-anchor='middle'%3Ea%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;
+  --grey:rgba(31,29,26,.032);
+  --ink:#1F1D1A;
+  --ink-70:rgba(31,29,26,.70);
+  --ink-55:rgba(31,29,26,.55);
+  --ink-38:rgba(31,29,26,.38);
+  --rule:rgba(31,29,26,.09);
+  --purple:#5B46B0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+::selection{background:#E4DAF5;}
+
+/* ── nav ── */
+nav{
+  position:sticky;top:0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px max(6vw,24px);
+  background:rgba(255,255,255,.9);backdrop-filter:blur(10px);
+}
+nav .brand{font-size:15px;font-weight:600;letter-spacing:-.015em;}
+nav .links{display:flex;gap:26px;font-size:14px;font-weight:500;color:var(--ink-55);}
+nav .links a:hover{color:var(--purple);}
+@media(max-width:520px){nav .links{gap:15px;font-size:13px;}}
+
+.pad{padding-left:max(6vw,24px);padding-right:max(6vw,24px);}
+.col{max-width:1020px;margin:0 auto;}
+
+/* ── hero ── */
+.hero{
+  min-height:calc(100vh - 170px);
+  display:flex;align-items:center;
+  padding:40px 0 60px;
+}
+.hero-in{display:grid;grid-template-columns:1fr 190px;gap:52px;align-items:center;width:100%;}
+h1{
+  font-size:clamp(32px,4.4vw,44px);line-height:1.16;font-weight:600;
+  letter-spacing:-.025em;text-wrap:pretty;
+}
+h1 .acc{color:var(--purple);}
+.hero p{
+  font-size:17px;line-height:1.62;color:var(--ink-55);
+  margin-top:22px;max-width:56ch;text-wrap:pretty;
+}
+.shot{
+  aspect-ratio:4/5;border-radius:12px;overflow:hidden;
+  border:1px solid var(--rule);
+  box-shadow:0 14px 34px rgba(31,29,26,.13);
+}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;}
+@media(max-width:820px){
+  .hero-in{grid-template-columns:1fr;gap:32px;}
+  .shot{max-width:190px;margin:0 auto;}
+}
+
+/* ── furniture ── */
+.kicker{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--ink-38);
+}
+h2{
+  font-size:clamp(24px,2.9vw,31px);line-height:1.18;font-weight:600;
+  letter-spacing:-.022em;margin-top:14px;
+}
+h2 .acc{color:var(--purple);}
+.role{
+  font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;
+  color:var(--purple);margin-top:14px;
+}
+.role a{border-bottom:1px solid rgba(91,70,176,.35);}
+.role a:hover{border-bottom-color:var(--purple);}
+p.body{
+  font-size:16.5px;line-height:1.68;color:var(--ink-55);
+  margin-top:16px;max-width:60ch;text-wrap:pretty;
+}
+p.body + p.body{margin-top:14px;}
+p.body .acc{color:var(--purple);font-weight:500;}
+
+/* ── grey section ── */
+.tint{background:var(--grey);}
+.sec{padding:74px 0;}
+
+/* ── morphiq: text left, phones right ── */
+.mq{display:grid;grid-template-columns:1fr 520px;gap:48px;align-items:center;}
+.mq > *{min-width:0;}
+@media(max-width:980px){.mq{grid-template-columns:1fr;gap:40px;}}
+
+.protolab{
+  font-family:'Inter',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-38);
+}
+.fan{display:flex;gap:12px;justify-content:flex-start;padding:14px 0 26px;}
+@media(max-width:980px){
+  .fan{overflow-x:auto;padding-bottom:30px;scrollbar-width:thin;}
+  .pcard:hover{transform:none;box-shadow:0 8px 24px rgba(31,29,26,.10);}
+}
+.pcard{
+  flex:none;cursor:default;
+  transition:transform .32s cubic-bezier(.22,1,.36,1), box-shadow .32s ease;
+  transform-origin:center center;
+  border-radius:22px;
+  box-shadow:0 8px 24px rgba(31,29,26,.10);
+}
+.pcard:hover{
+  transform:scale(1.3) translateY(-4px);
+  box-shadow:0 22px 50px rgba(31,29,26,.22);
+  z-index:5;position:relative;
+}
+.pclip{
+  width:158px;height:342px;overflow:hidden;border-radius:22px;
+  background:#fff;
+}
+.pclip > *{transform:scale(0.4213);transform-origin:top left;flex:none;}
+.cap{
+  margin-top:16px;font-family:'Inter',sans-serif;
+  font-size:12px;line-height:1.5;color:var(--ink-38);
+  display:flex;gap:18px;
+}
+.cap span{flex:1;min-width:0;}
+@media(max-width:980px){.cap{display:none;}}
+.cap b{color:var(--ink-70);font-weight:600;}
+
+/* ── research: text left, slideshow right ── */
+.rg{display:grid;grid-template-columns:1fr 330px;gap:48px;align-items:center;}
+.rg > *{min-width:0;}
+@media(max-width:980px){.rg{grid-template-columns:1fr;gap:36px;}}
+.fig{
+  border:1px solid var(--rule);border-radius:12px;
+  background:#fff;padding:16px;
+}
+@media(max-width:980px){.fig{max-width:400px;}}
+.slides{position:relative;}
+.slide{display:none;}
+.slide.on{display:block;}
+.slide img{width:100%;display:block;border-radius:6px;}
+.slide-cap{
+  margin-top:12px;font-family:'Inter',sans-serif;
+  font-size:13px;line-height:1.5;color:var(--ink-55);
+  min-height:3em;
+}
+.slide-cap b{color:var(--ink);font-weight:600;}
+.fig-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:6px;
+}
+.dots{display:flex;gap:6px;}
+.dots span{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(31,29,26,.15);cursor:pointer;transition:background .2s;
+}
+.dots span.on{background:var(--purple);}
+.fig-btns{display:flex;gap:6px;}
+.fig-btns button{
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid var(--rule);background:#fff;color:var(--ink-55);
+  font-size:14px;line-height:1;cursor:pointer;
+  transition:border-color .18s,color .18s;
+}
+.fig-btns button:hover{border-color:var(--purple);color:var(--purple);}
+
+/* ── portrait pose overlay ── */
+.shot{position:relative;}
+.pose{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .6s ease;}
+.shot.scan .pose{opacity:1;}
+.pose line{stroke:rgba(184,176,242,.85);stroke-width:1.6;stroke-linecap:round;}
+.pose circle{fill:#B8B0F2;}
+.pose .jt{opacity:0;transform:scale(.4);transform-origin:center;transition:opacity .4s ease,transform .4s cubic-bezier(.22,1,.36,1);}
+.shot.scan .jt{opacity:1;transform:none;}
+.pose .ln{stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1s ease .25s;}
+.shot.scan .ln{stroke-dashoffset:0;}
+.pose text{
+  font-family:'Inter',sans-serif;font-weight:700;fill:#B8B0F2;
+  opacity:0;transition:opacity .5s ease .85s;
+  filter:drop-shadow(0 1px 3px rgba(10,8,20,.7));
+}
+.pose text.deg{font-size:26px;letter-spacing:-.01em;}
+.pose text.lab{font-size:11px;letter-spacing:.14em;}
+.shot.scan .pose text{opacity:1;}
+@media(prefers-reduced-motion:reduce){
+  .pose,.pose .jt,.pose .ln,.pose text{transition:none;}
+  .pose .ln{stroke-dasharray:none;}
+}
+
+/* ── angle demo ── */
+.try{margin-top:26px;max-width:250px;}
+.try-lab{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-38);
+  margin-bottom:6px;
+}
+.try-box{
+  border:1px solid var(--rule);border-radius:12px;background:#fff;
+  padding:10px 14px 6px;
+}
+.try svg{display:block;width:100%;height:auto;touch-action:none;}
+.try .guide{stroke:rgba(31,29,26,.14);stroke-width:1;stroke-dasharray:4 5;}
+.try .sh-line{stroke:var(--purple);stroke-width:2.5;stroke-linecap:round;}
+.try .end{fill:#fff;stroke:var(--purple);stroke-width:2.5;}
+.try .end.drag{cursor:grab;}
+.try .end.drag:active{cursor:grabbing;}
+.try .hit{fill:transparent;cursor:grab;}
+.try-read{
+  display:flex;align-items:baseline;justify-content:space-between;
+  font-family:'Inter',sans-serif;padding:6px 2px 8px;
+}
+.try-deg{font-size:16px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+.try-band{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.try-note{
+  margin-top:8px;font-family:'Inter',sans-serif;font-size:11.5px;
+  line-height:1.5;color:var(--ink-38);max-width:250px;
+}
+.try .fig-head{fill:none;stroke:rgba(31,29,26,.30);stroke-width:2;}
+.try .lvl{font-family:'Inter',sans-serif;font-size:8px;fill:rgba(31,29,26,.30);letter-spacing:.05em;}
+
+/* ── animations (only when JS marks html.anim) ── */
+.anim .rv{opacity:0;transform:translateY(16px);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1);}
+.anim .rv.in{opacity:1;transform:none;}
+
+.anim .phones-anim .pw{transition:transform .8s cubic-bezier(.22,1,.36,1);}
+.anim .phones-anim:not(.go) .pw:nth-child(1){transform:translateX(58px) rotate(-4deg);}
+.anim .phones-anim:not(.go) .pw:nth-child(3){transform:translateX(-58px) rotate(4deg);}
+.anim .phones-anim.go .pw:nth-child(1){transition-delay:.05s;}
+.anim .phones-anim.go .pw:nth-child(2){transition-delay:.15s;}
+.anim .phones-anim.go .pw:nth-child(3){transition-delay:.25s;}
+.anim .phones-anim .cap{opacity:0;transform:translateY(8px);}
+.anim .phones-anim.go .cap{opacity:1;transform:none;
+  transition:opacity .5s ease .65s,transform .5s ease .65s;}
+
+.pclip{position:relative;}
+.scanline{
+  position:absolute;left:6%;right:6%;top:-14%;height:36px;
+  background:linear-gradient(180deg,transparent,rgba(91,70,176,.22),transparent);
+  opacity:0;pointer-events:none;
+}
+.pclip > .scanline{transform:none;}
+.anim .phones-anim.go .scanline{animation:scan 4.6s ease-in-out 1s infinite;}
+@keyframes scan{
+  0%{top:-14%;opacity:0;}
+  8%{opacity:1;}
+  60%{opacity:1;}
+  68%{top:100%;opacity:0;}
+  100%{top:100%;opacity:0;}
+}
+@media(max-width:980px){
+  .anim .phones-anim:not(.go) .pw{transform:none;}
+}
+@media(prefers-reduced-motion:reduce){
+  .anim .rv{opacity:1;transform:none;transition:none;}
+  .anim .phones-anim:not(.go) .pw{transform:none;}
+  .anim .phones-anim .cap{opacity:1;transform:none;}
+  .anim .phones-anim.go .scanline{animation:none;}
+}
+
+/* ── education ── */
+.edu-t{font-size:16.5px;font-weight:600;margin-top:18px;}
+.edu-p{font-size:16px;line-height:1.55;color:var(--ink-55);margin-top:5px;}
+
+/* ── toolkit ── */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:30px;}
+@media(max-width:820px){.grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:460px){.grid{grid-template-columns:1fr;}}
+.grid .l{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--purple);
+  padding-bottom:9px;border-bottom:1px solid var(--rule);
+}
+.grid .v{font-size:15px;color:var(--ink-55);margin-top:11px;line-height:1.6;}
+
+/* ── contact ── */
+.row{display:flex;gap:9px;flex-wrap:wrap;margin-top:26px;}
+.row a{
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:600;
+  padding:11px 17px;border-radius:8px;
+  border:1px solid var(--rule);background:#fff;
+  transition:border-color .18s,color .18s;
+}
+.row a:hover{border-color:var(--purple);color:var(--purple);}
+.row a.solid{background:var(--purple);color:#fff;border-color:var(--purple);}
+.row a.solid:hover{background:#4A379A;border-color:#4A379A;color:#fff;}
+
+footer{
+  margin-top:70px;padding:22px 0 44px;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-size:13px;color:var(--ink-38);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#top" class="brand">amanda li</a>
+  <div class="links">
+    <a href="#morphiq">morphiq</a>
+    <a href="#research">research</a>
+    <a href="#about">about</a>
+    <a href="#contact">contact</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div id="top" class="pad">
+  <div class="col hero">
+    <div class="hero-in">
+      <div>
+        <h1>following the threads between <span class="acc">data, product, and human health.</span></h1>
+        <p>
+          i'm amanda — statistics, economics &amp; mathematics at the university of toronto, working across data, computer vision, product, and design. lately that means teaching a phone camera to read the human body.
+        </p>
+      </div>
+      <div class="shot" id="shot">
+        <img src="amanda.jpg" alt="Amanda Li">
+        <svg class="pose" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <line class="ln" x1="399" y1="432" x2="400" y2="461"></line>
+          <line class="ln" x1="333" y1="464" x2="541" y2="458"></line>
+          <line class="ln" x1="333" y1="464" x2="312" y2="642"></line>
+          <line class="ln" x1="312" y1="642" x2="299" y2="886"></line>
+          <line class="ln" x1="541" y1="458" x2="558" y2="636"></line>
+          <line class="ln" x1="558" y1="636" x2="561" y2="882"></line>
+          <line class="ln" x1="400" y1="461" x2="402" y2="758"></line>
+          <line class="ln" x1="368" y1="760" x2="514" y2="757"></line>
+          <circle class="jt" cx="333" cy="464" r="5" style="transition-delay:.15s"></circle>
+          <circle class="jt" cx="541" cy="458" r="5" style="transition-delay:.25s"></circle>
+          <circle class="jt" cx="312" cy="642" r="4" style="transition-delay:.35s"></circle>
+          <circle class="jt" cx="558" cy="636" r="4" style="transition-delay:.45s"></circle>
+          <circle class="jt" cx="299" cy="886" r="4" style="transition-delay:.55s"></circle>
+          <circle class="jt" cx="561" cy="882" r="4" style="transition-delay:.6s"></circle>
+          <circle class="jt" cx="368" cy="760" r="5" style="transition-delay:.5s"></circle>
+          <circle class="jt" cx="514" cy="757" r="5" style="transition-delay:.5s"></circle>
+          <text class="deg" x="565" y="432">1.6°</text>
+          <text class="lab" x="566" y="450">SHOULDER</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MORPHIQ ══ -->
+<section class="tint pad" id="morphiq">
+  <div class="col sec rv">
+    <div class="mq">
+      <div>
+        <div class="kicker">Building</div>
+        <h2>Morphiq — a phone camera that reads your <span class="acc">posture.</span></h2>
+        <p class="body">
+          A 30-second scan checks for postural imbalance, then builds a short daily routine of workouts to correct it — and tracks what actually changed month to month.
+        </p>
+        <div class="role">Co-Founder · <a href="https://morphiq.ca" target="_blank" rel="noopener">morphiq ↗</a></div>
+        <div class="try">
+          <div class="try-lab">From the scan — drag a shoulder</div>
+          <div class="try-box">
+            <svg id="trySvg" viewBox="0 0 320 118">
+              <circle class="fig-head" cx="160" cy="26" r="13"></circle>
+              <line class="fig-head" x1="160" y1="39" x2="160" y2="62"></line>
+              <line class="guide" x1="30" y1="62" x2="290" y2="62"></line>
+              <text class="lvl" x="292" y="65" text-anchor="start">level</text>
+              <line class="sh-line" id="tryLine" x1="40" y1="62" x2="280" y2="62"></line>
+              <circle class="end" cx="40" cy="62" r="6"></circle>
+              <circle class="end drag" id="tryEnd" cx="280" cy="62" r="7"></circle>
+              <circle class="hit" id="tryHit" cx="280" cy="62" r="26"></circle>
+            </svg>
+            <div class="try-read">
+              <span class="try-deg" id="tryDeg">0.0°</span>
+              <span class="try-band" id="tryBand" style="color:#5A8C71;">Good</span>
+            </div>
+          </div>
+          <div class="try-note">How far the shoulder line tilts from level. The scan treats under 2° as balanced and flags anything past 8°.</div>
+        </div>
+      </div>
+      <div class="phones-anim">
+        <div class="protolab">Prototype</div>
+        <div class="fan">
+          <div class="pw"><div class="pcard"><div class="pclip"><div data-screen-label="Scan Camera — Front view" style="width:375px;height:812px;border-radius:54px;position:relative;overflow:hidden;background:linear-gradient(180deg,#F2EDE2 0%,#EAE4F8 35%,#E6DFF6 65%,#F2EDE2 100%);box-shadow:0 0 0 1px rgba(42,36,64,0.08),0 30px 80px rgba(42,36,64,0.14);flex-shrink:0;">
+        <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);width:118px;height:34px;background:#000;border-radius:20px;z-index:50;"></div>
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;z-index:40;font-size:13px;font-weight:600;color:rgba(42,36,64,0.8);"><span>9:41</span><span>●●● ▐▌</span></div>
+        <div style="position:absolute;inset:0;opacity:0.04;background-image:linear-gradient(rgba(91,70,176,1) 1px,transparent 1px),linear-gradient(90deg,rgba(91,70,176,1) 1px,transparent 1px);background-size:40px 40px;"></div>
+        <svg width="375" height="560" viewBox="0 0 375 560" fill="none" style="position:absolute;top:66px;left:0;">
+          <circle cx="187" cy="86" r="26" stroke="#5B46B0" stroke-width="1.5" opacity="0.4"></circle>
+          <line x1="187" y1="112" x2="187" y2="266" stroke="#5B46B0" stroke-width="1.5" opacity="0.3"></line>
+          <line x1="132" y1="142" x2="242" y2="138.5" stroke="#5B46B0" stroke-width="1.5" opacity="0.45"></line>
+          <circle cx="132" cy="142" r="5" fill="#6FAE8C"></circle>
+          <circle cx="242" cy="138.5" r="5" fill="#6FAE8C"></circle>
+          <text x="257" y="136" fill="#4F9576" font-size="11" font-family="DM Sans" font-weight="700">1.8°</text>
+          <line x1="132" y1="142" x2="116" y2="300" stroke="#5B46B0" stroke-width="1" opacity="0.25"></line>
+          <line x1="242" y1="138.5" x2="258" y2="297" stroke="#5B46B0" stroke-width="1" opacity="0.25"></line>
+          <line x1="139" y1="264" x2="235" y2="267.5" stroke="#5B46B0" stroke-width="1.5" opacity="0.45"></line>
+          <circle cx="139" cy="264" r="5" fill="#B08430"></circle>
+          <circle cx="235" cy="267.5" r="5" fill="#B08430"></circle>
+          <text x="250" y="272" fill="#B08430" font-size="11" font-family="DM Sans" font-weight="700">2.1°</text>
+          <line x1="139" y1="264" x2="142" y2="446" stroke="#5B46B0" stroke-width="1" opacity="0.25"></line>
+          <line x1="235" y1="267.5" x2="232" y2="446" stroke="#5B46B0" stroke-width="1" opacity="0.25"></line>
+          <circle cx="140" cy="343" r="3.5" fill="#5B46B0" opacity="0.4"></circle>
+          <circle cx="234" cy="346" r="3.5" fill="#5B46B0" opacity="0.4"></circle>
+          <path d="M 62 60 L 62 42 L 80 42" stroke="#5B46B0" stroke-width="1.5" opacity="0.35"></path>
+          <path d="M 313 60 L 313 42 L 295 42" stroke="#5B46B0" stroke-width="1.5" opacity="0.35"></path>
+          <path d="M 62 500 L 62 518 L 80 518" stroke="#5B46B0" stroke-width="1.5" opacity="0.35"></path>
+          <path d="M 313 500 L 313 518 L 295 518" stroke="#5B46B0" stroke-width="1.5" opacity="0.35"></path>
+        </svg>
+        <div style="position:absolute;top:68px;left:50%;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:7px;padding:7px 16px;background:rgba(255,252,245,0.8);backdrop-filter:blur(16px);border:1px solid rgba(42,36,64,0.1);border-radius:99px;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#6FAE8C;animation:pulseDot 1.8s ease-in-out infinite;"></div>
+          <span style="font-size:11.5px;font-weight:600;color:rgba(42,36,64,0.75);">Front view — hold still</span>
+        </div>
+        <div style="position:absolute;bottom:158px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;background:rgba(255,252,245,0.8);backdrop-filter:blur(16px);border:1px solid rgba(42,36,64,0.1);border-radius:99px;padding:9px 20px;z-index:5;">
+          <div style="text-align:center;"><div style="font-size:14px;font-weight:800;color:#4F9576;">1.8°</div><div style="font-size:7.5px;font-weight:700;letter-spacing:0.08em;color:rgba(42,36,64,0.35);">SHOULDER</div></div>
+          <div style="width:1px;height:20px;background:rgba(42,36,64,0.1);"></div>
+          <div style="text-align:center;"><div style="font-size:14px;font-weight:800;color:#B08430;">2.1°</div><div style="font-size:7.5px;font-weight:700;letter-spacing:0.08em;color:rgba(42,36,64,0.35);">PELVIC</div></div>
+          <div style="width:1px;height:20px;background:rgba(42,36,64,0.1);"></div>
+          <div style="text-align:center;"><div style="font-size:13px;font-weight:700;color:#4F9576;">Good</div><div style="font-size:7.5px;font-weight:700;letter-spacing:0.08em;color:rgba(42,36,64,0.35);">FRAMING</div></div>
+        </div>
+        <div style="position:absolute;bottom:36px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:12px;z-index:5;">
+          <div style="display:flex;gap:6px;align-items:center;">
+            <span style="font-size:9px;font-weight:700;letter-spacing:0.1em;padding:5px 14px;border-radius:99px;background:rgba(91,70,176,0.2);border:1px solid rgba(91,70,176,0.4);color:#5B46B0;">FRONT</span>
+            <span style="font-size:9px;font-weight:700;letter-spacing:0.1em;padding:5px 14px;border-radius:99px;border:1px solid rgba(42,36,64,0.12);color:rgba(42,36,64,0.35);">SIDE</span>
+            <span style="font-size:9px;font-weight:700;letter-spacing:0.1em;padding:5px 14px;border-radius:99px;border:1px solid rgba(42,36,64,0.12);color:rgba(42,36,64,0.35);">BACK</span>
+          </div>
+          <div style="width:62px;height:62px;border-radius:50%;background:#FFFFFF;border:4px solid rgba(42,36,64,0.35);box-shadow:0 6px 20px rgba(42,36,64,0.14);cursor:pointer;"></div>
+          <div style="font-size:10.5px;color:rgba(42,36,64,0.4);">Hold still — auto-captures in 3</div>
+        </div>
+        <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:99px;background:rgba(42,36,64,0.22);z-index:50;"></div>
+      </div><div class="scanline"></div></div></div></div>
+          <div class="pw"><div class="pcard"><div class="pclip"><div data-screen-label="Plan Player — Hip Mobility" style="width:375px;height:812px;border-radius:54px;position:relative;overflow:hidden;background:radial-gradient(120% 45% at 50% 0%,#F1EDFA 0%,#FBF9F4 60%,#F8F5EE 100%);box-shadow:0 0 0 1px rgba(42,36,64,0.08),0 30px 80px rgba(42,36,64,0.14);flex-shrink:0;">
+        <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);width:118px;height:34px;background:#000;border-radius:20px;z-index:50;"></div>
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;z-index:40;font-size:13px;font-weight:600;color:rgba(42,36,64,0.8);"><span>9:41</span><span>●●● ▐▌</span></div>
+        <div style="position:absolute;inset:0;padding:70px 26px 44px;display:flex;flex-direction:column;z-index:2;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div style="font-size:10.5px;font-weight:700;letter-spacing:0.24em;color:rgba(42,36,64,0.45);">TODAY'S PLAN · 1 OF 3</div>
+            <div style="font-size:16px;color:rgba(42,36,64,0.4);cursor:pointer;">✕</div>
+          </div>
+          <div style="display:flex;gap:5px;margin-top:12px;">
+            <div style="flex:2;height:3px;border-radius:99px;background:#5B46B0;"></div>
+            <div style="flex:1;height:3px;border-radius:99px;background:rgba(42,36,64,0.12);"></div>
+            <div style="flex:2;height:3px;border-radius:99px;background:rgba(42,36,64,0.12);"></div>
+          </div>
+          <div style="margin-top:16px;position:relative;height:188px;border-radius:20px;overflow:hidden;background:repeating-linear-gradient(45deg,rgba(91,70,176,0.07) 0 12px,rgba(91,70,176,0.02) 12px 24px);border:1px solid rgba(42,36,64,0.1);">
+            <div style="position:absolute;top:12px;left:14px;font-size:9px;font-weight:700;letter-spacing:0.18em;color:rgba(255,248,238,0.82);background:rgba(14,10,32,0.6);border-radius:99px;padding:4px 10px;">DEMO · 0:12 LOOP</div><div style="position:absolute;top:12px;right:14px;display:flex;align-items:center;gap:9px;background:rgba(14,10,32,0.72);backdrop-filter:blur(6px);border-radius:12px;padding:7px 11px;z-index:4;box-shadow:0 6px 18px rgba(14,10,32,0.28);"><div><div style="font-size:7.5px;font-weight:700;letter-spacing:0.18em;color:rgba(255,248,238,0.6);">UP NEXT</div><div style="font-size:11.5px;font-weight:700;color:#FFF8EE;line-height:1.1;margin-top:2px;">Thoracic Reset</div></div><div style="font-size:9.5px;font-weight:600;color:rgba(255,248,238,0.55);border-left:1px solid rgba(255,248,238,0.22);padding-left:9px;">1&nbsp;min</div></div>
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+              <div style="width:56px;height:56px;border-radius:50%;background:#523D9C;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(42,36,64,0.14);cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFF8EE" style="margin-left:2px;"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div>
+            </div>
+            <div style="position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:monospace;font-size:9px;color:rgba(42,36,64,0.35);">coach demo video — 90/90 hip switch</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:16px;">
+            <div>
+              <div style="font-size:22px;font-weight:700;letter-spacing:-0.01em;">Hip Mobility</div>
+              <div style="font-size:11.5px;color:rgba(42,36,64,0.5);margin-top:2px;">90/90 hip switches · both sides</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:26px;font-weight:800;letter-spacing:-0.03em;color:#5B46B0;line-height:1;">1:24</div>
+              <div style="font-size:9.5px;font-weight:600;color:rgba(42,36,64,0.4);margin-top:2px;">remaining</div>
+            </div>
+          </div>
+          <div style="height:4px;border-radius:99px;background:rgba(42,36,64,0.1);margin-top:10px;"><div style="width:62%;height:100%;border-radius:99px;background:linear-gradient(90deg,#8A79B8,#5B46B0);"></div></div>
+          <div style="margin-top:14px;background:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.5);box-shadow:0 8px 24px rgba(42,36,64,0.06);border-radius:18px;padding:12px 16px;">
+            <div style="font-size:9.5px;font-weight:700;letter-spacing:0.24em;color:rgba(42,36,64,0.35);margin-bottom:4px;">HOW TO</div>
+            <div style="display:flex;gap:10px;padding:6px 0;"><div style="font-size:10.5px;font-weight:700;color:#8A79B8;width:14px;flex-shrink:0;">1</div><div style="font-size:12.5px;line-height:1.45;color:rgba(42,36,64,0.85);">Sit tall, both knees bent at 90° — one leg in front, one to the side.</div></div>
+            <div style="display:flex;gap:10px;padding:6px 0;"><div style="font-size:10.5px;font-weight:700;color:#8A79B8;width:14px;flex-shrink:0;">2</div><div style="font-size:12.5px;line-height:1.45;color:rgba(42,36,64,0.85);">Rotate both knees across to the other side without using your hands.</div></div>
+            <div style="display:flex;gap:10px;padding:6px 0;"><div style="font-size:10.5px;font-weight:700;color:#8A79B8;width:14px;flex-shrink:0;">3</div><div style="font-size:12.5px;line-height:1.45;color:rgba(42,36,64,0.85);">Exhale as you switch. Keep your chest tall, not rounded.</div></div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:26px;margin:auto 0 16px;padding-top:16px;">
+            <div style="font-size:12px;font-weight:700;color:rgba(42,36,64,0.45);cursor:pointer;">Back</div>
+            <div style="width:60px;height:60px;border-radius:50%;background:#523D9C;display:flex;align-items:center;justify-content:center;gap:5px;cursor:pointer;box-shadow:0 8px 24px rgba(42,36,64,0.18);">
+              <div style="width:5px;height:18px;border-radius:2px;background:#FFF8EE;"></div>
+              <div style="width:5px;height:18px;border-radius:2px;background:#FFF8EE;"></div>
+            </div>
+            <div style="font-size:12px;font-weight:700;color:rgba(42,36,64,0.45);cursor:pointer;">Skip</div>
+          </div>
+        </div>
+        <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:99px;background:rgba(42,36,64,0.22);z-index:50;"></div>
+      </div></div></div></div>
+          <div class="pw"><div class="pcard"><div class="pclip"><div data-screen-label="Monthly Reveal — Before and After" style="width:375px;height:812px;border-radius:54px;position:relative;overflow:hidden;background:radial-gradient(120% 45% at 50% 0%,#F1EDFA 0%,#FBF9F4 60%,#F8F5EE 100%);box-shadow:0 0 0 1px rgba(42,36,64,0.08),0 30px 80px rgba(42,36,64,0.14);flex-shrink:0;">
+        <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);width:118px;height:34px;background:#000;border-radius:20px;z-index:50;"></div>
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;z-index:40;font-size:13px;font-weight:600;color:rgba(42,36,64,0.8);"><span>9:41</span><span>●●● ▐▌</span></div>
+        <div style="position:absolute;inset:0;padding:68px 22px 36px;display:flex;flex-direction:column;z-index:2;">
+          <div style="font-size:10.5px;font-weight:700;letter-spacing:0.28em;color:#8A79B8;">MONTHLY SCAN · APRIL</div>
+          <div style="font-size:26px;font-weight:700;letter-spacing:-0.02em;line-height:1.12;margin-top:8px;">See how your body <em style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:31px;color:#5B46B0;">changed</em></div>
+          <div style="font-size:12px;color:rgba(42,36,64,0.5);margin:7px 0 16px;">March 1 vs April 1 · Two full-body scans</div>
+          <div style="display:flex;gap:8px;align-items:stretch;">
+            <div style="flex:1;background:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.5);box-shadow:0 6px 18px rgba(42,36,64,0.05);border-radius:18px;padding:12px 12px 10px;">
+              <div style="font-size:9.5px;font-weight:700;letter-spacing:0.16em;color:rgba(42,36,64,0.4);">BEFORE · MAR</div>
+              <div style="position:relative;height:124px;margin:8px 0 6px;display:flex;align-items:center;justify-content:center;overflow:hidden;"><svg width="100%" height="118" viewBox="0 0 120 124" sc-camel-preserve-aspect-ratio="xMidYMid meet" style="display:block;"><line x1="60" y1="6" x2="60" y2="120" stroke="rgba(42,36,64,0.14)" stroke-width="1" stroke-dasharray="2 3"></line><circle cx="60" cy="15" r="9.5" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></circle><rect x="55" y="22" width="10" height="7" rx="3" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></rect><path d="M45 30 Q60 26 75 30 L72 74 Q60 78 48 74 Z" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></path><path d="M46 32 L34 40 L30 73 L36 74 L41 44 L49 38 Z" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></path><path d="M74 32 L86 40 L90 73 L84 74 L79 44 L71 38 Z" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></path><path d="M48 74 Q60 78 72 74 L70 87 Q60 91 50 87 Z" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></path><path d="M50 87 L47 120 L56 120 L59 89 Z" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></path><path d="M70 87 L73 120 L64 120 L61 89 Z" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></path><ellipse cx="49" cy="34" rx="7" ry="5" fill="rgba(196,115,93,0.55)"></ellipse><ellipse cx="71" cy="39" rx="7" ry="5" fill="rgba(196,115,93,0.5)"></ellipse><ellipse cx="60" cy="62" rx="10" ry="6" fill="rgba(176,132,48,0.5)"></ellipse></svg><div style="position:absolute;right:2px;top:30px;font-size:8.5px;font-weight:700;color:#C4735D;">5.2°</div><div style="position:absolute;right:2px;top:74px;font-size:8.5px;font-weight:700;color:#B08430;">3.1°</div></div><div style="display:flex;align-items:baseline;gap:5px;"><div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;color:rgba(42,36,64,0.6);">62</div><div style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:rgba(42,36,64,0.35);">RECOVERY SCORE</div></div>
+            </div>
+            <div style="align-self:center;font-size:16px;color:rgba(42,36,64,0.4);">→</div>
+            <div style="flex:1;background:rgba(111,174,140,0.06);border:1px solid rgba(111,174,140,0.3);border-radius:18px;padding:12px 12px 10px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;"><div style="font-size:9.5px;font-weight:700;letter-spacing:0.16em;color:#4F9576;">AFTER · APR</div><span style="font-size:9px;font-weight:800;color:#4F9576;">+8</span></div>
+              <div style="position:relative;height:124px;margin:8px 0 6px;display:flex;align-items:center;justify-content:center;overflow:hidden;"><svg width="100%" height="118" viewBox="0 0 120 124" sc-camel-preserve-aspect-ratio="xMidYMid meet" style="display:block;"><line x1="60" y1="6" x2="60" y2="120" stroke="rgba(42,36,64,0.14)" stroke-width="1" stroke-dasharray="2 3"></line><circle cx="60" cy="15" r="9.5" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></circle><rect x="55" y="22" width="10" height="7" rx="3" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></rect><path d="M45 30 Q60 26 75 30 L72 74 Q60 78 48 74 Z" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></path><path d="M46 32 L34 40 L30 73 L36 74 L41 44 L49 38 Z" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></path><path d="M74 32 L86 40 L90 73 L84 74 L79 44 L71 38 Z" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></path><path d="M48 74 Q60 78 72 74 L70 87 Q60 91 50 87 Z" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></path><path d="M50 87 L47 120 L56 120 L59 89 Z" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></path><path d="M70 87 L73 120 L64 120 L61 89 Z" fill="rgba(91,70,176,0.13)" stroke="rgba(91,70,176,0.4)" stroke-width="1.2"></path><ellipse cx="49" cy="36" rx="7" ry="5" fill="rgba(111,174,140,0.55)"></ellipse><ellipse cx="71" cy="36" rx="7" ry="5" fill="rgba(111,174,140,0.55)"></ellipse><ellipse cx="60" cy="60" rx="10" ry="7" fill="rgba(111,174,140,0.4)"></ellipse><ellipse cx="60" cy="82" rx="9" ry="5" fill="rgba(111,174,140,0.42)"></ellipse></svg><div style="position:absolute;right:2px;top:29px;font-size:8.5px;font-weight:700;color:#4F9576;">1.8°</div><div style="position:absolute;right:2px;top:73px;font-size:8.5px;font-weight:700;color:#4F9576;">1.2°</div></div><div style="display:flex;align-items:baseline;gap:5px;"><div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;color:#4F9576;">70</div><div style="font-size:8.5px;font-weight:700;letter-spacing:0.12em;color:rgba(42,36,64,0.35);">RECOVERY SCORE</div></div>
+            </div>
+          </div>
+          <div style="margin-top:14px;background:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.5);box-shadow:0 8px 24px rgba(42,36,64,0.06);border-radius:18px;padding:4px 18px;">
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(42,36,64,0.07);">
+              <div style="width:22px;height:22px;border-radius:50%;background:rgba(111,174,140,0.15);border:1px solid rgba(111,174,140,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4F9576" stroke-width="3"><path d="M20 6L9 17l-5-5"></path></svg></div>
+              <div style="font-size:13.5px;line-height:1.4;">You reduced shoulder imbalance by <b>11%</b></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(42,36,64,0.07);">
+              <div style="width:22px;height:22px;border-radius:50%;background:rgba(111,174,140,0.15);border:1px solid rgba(111,174,140,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4F9576" stroke-width="3"><path d="M20 6L9 17l-5-5"></path></svg></div>
+              <div style="font-size:13.5px;line-height:1.4;">Your recovery score improved <b>8 points</b></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 0;">
+              <div style="width:22px;height:22px;border-radius:50%;background:rgba(111,174,140,0.15);border:1px solid rgba(111,174,140,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4F9576" stroke-width="3"><path d="M20 6L9 17l-5-5"></path></svg></div>
+              <div style="font-size:13.5px;line-height:1.4;">You completed <b>5 recovery sessions</b></div>
+            </div>
+          </div>
+          <div style="text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:17px;color:#5B46B0;margin:16px 0 14px;">“The strongest version of you was built in the moments you wanted to quit.”</div>
+          <div style="margin-top:auto;">
+            <div style="background:#523D9C;color:#FFF8EE;border-radius:99px;padding:15px;text-align:center;font-size:15px;font-weight:700;cursor:pointer;">Share your progress</div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;border:1.5px solid rgba(91,70,176,0.35);border-radius:99px;padding:13px;font-size:14px;font-weight:700;color:#5B46B0;cursor:pointer;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B46B0" stroke-width="1.8"><path d="M12 3v12M7 10l5 5 5-5"></path><path d="M4 19h16"></path></svg>Save to Photos</div>
+          </div>
+        </div>
+        <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:99px;background:rgba(42,36,64,0.22);z-index:50;"></div>
+      </div></div></div></div>
+        </div>
+        <div class="cap">
+          <span><b>Scan.</b> A live read on full-body posture.</span>
+          <span><b>Routine.</b> One move at a time, five minutes.</span>
+          <span><b>Progress.</b> Before and after, month to month.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RESEARCH ══ -->
+<section class="pad" id="research">
+  <div class="col sec rv">
+    <div class="rg">
+    <div>
+    <div class="kicker">Research</div>
+    <h2>Watching surgery, frame by frame.</h2>
+    <div class="role">Researcher · UHN — Toronto General</div>
+    <p class="body">
+      I worked on detection models for operating-room video — identifying which instrument is in frame, whether it sits in a <span class="acc">safe or unsafe zone</span>, and when dissection begins.
+    </p>
+    <p class="body">
+      The goal is safer surgery — letting a team review exactly where an instrument crossed into an unsafe zone instead of relying on memory. I validated the trained models against the original footage, frame by frame, to confirm the labels held.
+    </p>
+    </div>
+    <div class="fig">
+      <div class="slides">
+        <div class="slide on">
+          <img src="uhn-1.png?v=3" alt="Detected instrument mask">
+          <div class="slide-cap"><b>1 · Detect.</b> The model finds the instrument.</div>
+        </div>
+        <div class="slide">
+          <img src="uhn-2.png?v=3" alt="Go and no-go zones">
+          <div class="slide-cap"><b>2 · Map.</b> The frame's safe and unsafe zones.</div>
+        </div>
+        <div class="slide">
+          <img src="uhn-3.png?v=3" alt="Overlap of instrument and go zone">
+          <div class="slide-cap"><b>3 · Check.</b> Instrument fully inside the safe zone — this frame passes.</div>
+        </div>
+      </div>
+      <div class="fig-nav">
+        <div class="dots">
+          <span class="on" data-i="0"></span><span data-i="1"></span><span data-i="2"></span>
+        </div>
+        <div class="fig-btns">
+          <button type="button" data-d="-1" aria-label="Previous">‹</button>
+          <button type="button" data-d="1" aria-label="Next">›</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section class="tint pad" id="about">
+  <div class="col sec rv">
+    <div class="kicker">About</div>
+    <p class="body" style="font-size:18px;color:var(--ink-70);margin-top:20px;">
+      I studied statistics and economics because I wanted to understand systems — how numbers, people, and incentives interact. What stayed with me most was the part after the analysis: turning insight into something useful.
+    </p>
+    <p class="body" style="font-size:18px;color:var(--ink-70);">
+      Since then, my work has moved across research, data, product, and design, from surgical AI to building MORPHIQ.
+    </p>
+  </div>
+</section>
+
+<!-- ══ EDUCATION ══ -->
+<section class="pad">
+  <div class="col sec rv">
+    <div class="kicker">Education</div>
+    <div class="edu-t">BSc (Hons) Statistics &amp; Economics, minor in Mathematics.</div>
+    <div class="edu-p">Focus in data analysis. University of Toronto.</div>
+  </div>
+</section>
+
+<!-- ══ TOOLKIT ══ -->
+<section class="tint pad">
+  <div class="col sec rv">
+    <div class="kicker">How I build</div>
+    <div class="grid">
+      <div>
+        <div class="l">Data &amp; ML</div>
+        <div class="v">Python · R · SQL · PyTorch · OpenCV</div>
+      </div>
+      <div>
+        <div class="l">Analytics</div>
+        <div class="v">statistical modeling · A/B testing · Tableau · data visualization</div>
+      </div>
+      <div>
+        <div class="l">Product &amp; design</div>
+        <div class="v">Figma · design systems · product strategy · user research</div>
+      </div>
+      <div>
+        <div class="l">Ways of working</div>
+        <div class="v">zero-to-one building · sponsorships · collaboration · team leadership</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="pad" id="contact">
+  <div class="col sec rv">
+    <div class="kicker">Contact</div>
+    <h2>Get in touch.</h2>
+    <p class="body">
+      Toronto-based. If something here resonates — data, product, design, or Morphiq — I'd love to connect.
+    </p>
+    <div class="row">
+      <a class="solid" href="mailto:amandali2003@hotmail.com">email ↗</a>
+      <a href="https://www.linkedin.com/in/amandali8/" target="_blank" rel="noopener">linkedin ↗</a>
+      <a href="https://morphiq.ca" target="_blank" rel="noopener">morphiq ↗</a>
+    </div>
+    <footer>
+      <span>© 2026 Amanda Li</span>
+      <span>Toronto, Canada</span>
+    </footer>
+  </div>
+</section>
+
+<script>
+(function(){
+  document.documentElement.classList.add('anim');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          var pa=e.target.querySelector('.phones-anim');
+          if(pa)pa.classList.add('go');
+          io.unobserve(e.target);
+        }
+      });
+    },{threshold:.18});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+  }else{
+    document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});
+    var pa=document.querySelector('.phones-anim'); if(pa)pa.classList.add('go');
+  }
+  // portrait scan: auto once when visible, replay on hover
+  var shot=document.getElementById('shot');
+  if(shot){
+    var played=false;
+    var so=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting&&!played){played=true;
+          setTimeout(function(){shot.classList.add('scan');},900);
+          so.unobserve(shot);}
+      });
+    },{threshold:.4});
+    so.observe(shot);
+    shot.addEventListener('mouseenter',function(){
+      if(!played)return;
+      shot.classList.remove('scan');
+      void shot.offsetWidth;
+      shot.classList.add('scan');
+    });
+  }
+
+  // angle demo
+  var hit=document.getElementById('tryHit');
+  if(hit){
+    var svg=document.getElementById('trySvg'), line=document.getElementById('tryLine'),
+        end=document.getElementById('tryEnd'), deg=document.getElementById('tryDeg'),
+        band=document.getElementById('tryBand');
+    var dragging=false;
+    function setY(clientY){
+      var r=svg.getBoundingClientRect();
+      var y=(clientY-r.top)*(118/r.height);
+      y=Math.max(20,Math.min(104,y));
+      end.setAttribute('cy',y); hit.setAttribute('cy',y);
+      line.setAttribute('y2',y);
+      var a=Math.abs(Math.atan2(y-62,240)*180/Math.PI);
+      deg.textContent=a.toFixed(1)+'\u00B0';
+      var c,t;
+      if(a<=2){c='#5A8C71';t='Good';}
+      else if(a<8){c='#B88837';t='Watch';}
+      else{c='#B56556';t='Alert';}
+      band.style.color=c; band.textContent=t;
+      line.style.stroke=c;
+      svg.querySelectorAll('.end').forEach(function(el){el.style.stroke=c;});
+    }
+    hit.addEventListener('pointerdown',function(e){dragging=true;hit.setPointerCapture(e.pointerId);e.preventDefault();});
+    hit.addEventListener('pointermove',function(e){if(dragging)setY(e.clientY);});
+    hit.addEventListener('pointerup',function(){dragging=false;});
+    hit.addEventListener('pointercancel',function(){dragging=false;});
+  }
+
+  var fig=document.querySelector('.fig');
+  if(!fig)return;
+  var slides=fig.querySelectorAll('.slide'), dots=fig.querySelectorAll('.dots span'), i=0;
+  function show(n){
+    i=(n+slides.length)%slides.length;
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i);});
+    dots.forEach(function(d,k){d.classList.toggle('on',k===i);});
+  }
+  fig.querySelectorAll('.fig-btns button').forEach(function(b){
+    b.addEventListener('click',function(){show(i+ +b.dataset.d);});
+  });
+  dots.forEach(function(d){
+    d.addEventListener('click',function(){show(+d.dataset.i);});
+  });
+})();
+</script>
+</body>
+</html>
